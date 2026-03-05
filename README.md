@@ -109,3 +109,20 @@ if !IsValidOrderWMSStatus(wmsStatus) {
     return nil, 0, 0, errs.NewWithMessage(fiber.ErrInternalServerError.Code, "Invalid wms status")
 }
 ```
+
+# Migrations
+Run all migrations sql, location: wms-technical-test-backend/migrations
+
+## Logs
+
+![Architecture](./images/logs-1.png)
+![Architecture](./images/logs-2.png)
+
+## UI 
+
+![Architecture](./images/app-1.png)
+![Architecture](./images/app-2.png)
+![Architecture](./images/app-3.png)
+![Architecture](./images/app-4.png)
+![Architecture](./images/app-5.png)
+![Architecture](./images/app-6.png)
