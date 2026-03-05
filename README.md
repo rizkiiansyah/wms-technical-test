@@ -139,6 +139,7 @@ Run all migrations sql, location: wms-technical-test-backend/migrations
 - TailwindCSS: More flexible for inline styling without css/scss syntax.
 - Role Access Table: More flexible when there is new role and give the access rights.
 - sync/singleflight: Simple to prevent duplication of concurrent function calls.
+
 ```go
 func RoleAccessMiddleware(roleAccessSvc *roleaccess.Service, allowedRoleAccessKeys ...string) fiber.Handler {
 	return func(c *fiber.Ctx) error {
@@ -162,3 +163,14 @@ func RoleAccessMiddleware(roleAccessSvc *roleaccess.Service, allowedRoleAccessKe
 
 order.Post("/:order_sn/pick", middleware.RoleAccessMiddleware(roleAccessSvc, "orders.pick"), handler.Pick)
 ```
+
+## Run Project Instruction
+- Backend
+-> Run all migration sql, filepath: /wms-technical-test-backend/migrations
+-> Change .env-example to .env in /wms-technical-test-backend/
+-> Go to folder /wms-technical-test-backend and run the backend, command: go run cmd/app/main.go (use go 1.25)
+
+- Frontend
+-> Change .env-example to .env in /wms-technical-test-frontend/
+-> Go to folder /wms-technical-test-frontend, and install depedencies, command: npm install (use node 20)
+-> Go to folder /wms-technical-test-frontend, and then run the frontend, command: npm run dev
