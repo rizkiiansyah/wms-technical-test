@@ -34,6 +34,7 @@ Flow Authentication
 ## Database Design
 
 ![Architecture](./images/database-design.png)
+![Architecture](./images/redis-design.png)
 
 - roles: used to store a list of roles in the system and to determine user's access right to certain features.
   Example roles: Warehouse Operator, Warehouse Staff, Picker, Packer, Warehouse Admin.
