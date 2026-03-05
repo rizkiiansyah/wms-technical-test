@@ -1,0 +1,1385 @@
+{
+  "info": {
+    "_postman_id": "30806cdf-e11b-451d-804d-f9a0bd7fe3d6",
+    "name": "WMS Technical Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9819168"
+  },
+  "item": [
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "List",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localUrl}}/orders",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "orders"
+              ],
+              "query": [
+                {
+                  "key": "wms_status",
+                  "value": "READY_TO_PICK",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "List Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/orders",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "wms_status",
+                      "value": "TEST",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:14:03 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2070"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"meta\": {\n        \"page\": 1,\n        \"per_page\": 10,\n        \"total\": 122,\n        \"total_pages\": 13\n    },\n    \"data\": [\n        {\n            \"order_sn\": \"SHP001\",\n            \"marketplace_status\": \"delivered\",\n            \"shipping_status\": \"delivered\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"\",\n            \"updated_at\": \"2026-03-05T22:11:10.422621Z\"\n        },\n        {\n            \"order_sn\": \"shopee-123-ORD-0016\",\n            \"marketplace_status\": \"processing\",\n            \"shipping_status\": \"label_created\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"\",\n            \"updated_at\": \"2026-03-05T20:35:00.563874Z\"\n        },\n        {\n            \"order_sn\": \"shopee-123-ORD-0113\",\n            \"marketplace_status\": \"shipping\",\n            \"shipping_status\": \"delivered\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"TRK-SHOPEE-1230113\",\n            \"updated_at\": \"2026-03-05T20:35:00.563874Z\"\n        },\n        {\n            \"order_sn\": \"shopee-123-ORD-0107\",\n            \"marketplace_status\": \"paid\",\n            \"shipping_status\": \"shipped\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"\",\n            \"updated_at\": \"2026-03-05T20:35:00.563874Z\"\n        },\n        {\n            \"order_sn\": \"shopee-123-ORD-0020\",\n            \"marketplace_status\": \"cancelled\",\n            \"shipping_status\": \"awaiting_pickup\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"\",\n            \"updated_at\": \"2026-03-05T20:35:00.563874Z\"\n        },\n        {\n            \"order_sn\": \"shopee-123-ORD-0119\",\n            \"marketplace_status\": \"delivered\",\n            \"shipping_status\": \"cancelled\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"TRK-SHOPEE-1230119\",\n            \"updated_at\": \"2026-03-05T20:35:00.563874Z\"\n        },\n        {\n            \"order_sn\": \"shopee-123-ORD-0043\",\n            \"marketplace_status\": \"shipping\",\n            \"shipping_status\": \"delivered\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"TRK-SHOPEE-1230043\",\n            \"updated_at\": \"2026-03-05T20:35:00.563874Z\"\n        },\n        {\n            \"order_sn\": \"shopee-123-ORD-0103\",\n            \"marketplace_status\": \"shipping\",\n            \"shipping_status\": \"delivered\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"TRK-SHOPEE-1230103\",\n            \"updated_at\": \"2026-03-05T20:35:00.563874Z\"\n        },\n        {\n            \"order_sn\": \"shopee-123-ORD-0072\",\n            \"marketplace_status\": \"paid\",\n            \"shipping_status\": \"shipped\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"\",\n            \"updated_at\": \"2026-03-05T20:35:00.563874Z\"\n        },\n        {\n            \"order_sn\": \"shopee-123-ORD-0120\",\n            \"marketplace_status\": \"cancelled\",\n            \"shipping_status\": \"awaiting_pickup\",\n            \"wms_status\": \"READY_TO_PICK\",\n            \"tracking_number\": \"\",\n            \"updated_at\": \"2026-03-05T20:35:00.563874Z\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "List Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/orders?wms_status=TEST",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "wms_status",
+                      "value": "TEST"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:14:15 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "60"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 500,\n    \"status\": \"error\",\n    \"message\": \"Invalid wms status\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Detail",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localUrl}}/orders/shopee-123-ORD-0067",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "orders",
+                "shopee-123-ORD-0067"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Detail Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/orders/shopee-123-ORD-0067",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "shopee-123-ORD-0067"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:15:48 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "422"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"data\": {\n        \"order_sn\": \"shopee-123-ORD-0067\",\n        \"shop_id\": \"shopee-123\",\n        \"marketplace_status\": \"paid\",\n        \"shipping_status\": \"shipped\",\n        \"wms_status\": \"READY_TO_PICK\",\n        \"tracking_number\": \"\",\n        \"total_amount\": 179.98,\n        \"raw_marketplace_payload\": \"\",\n        \"created_at\": \"2025-12-04T02:00:00Z\",\n        \"updated_at\": \"2026-03-05T20:35:00.562537Z\",\n        \"items\": [\n            {\n                \"order_sn\": \"shopee-123-ORD-0067\",\n                \"sku\": \"AUTO-0001\",\n                \"quantity\": 2,\n                \"price\": 89.99\n            }\n        ]\n    }\n}"
+            },
+            {
+              "name": "Detail Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/orders/shopee-123-ORD-0067s",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "shopee-123-ORD-0067s"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:16:07 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "60"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 404,\n    \"status\": \"error\",\n    \"message\": \"Order is not found\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Pick",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{localUrl}}/orders/shopee-123-ORD-0067/pick",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "orders",
+                "shopee-123-ORD-0067",
+                "pick"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Pick Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/orders/shopee-123-ORD-0067/pick",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "shopee-123-ORD-0067",
+                    "pick"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:18:38 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "350"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Pick success\",\n    \"data\": {\n        \"order_sn\": \"shopee-123-ORD-0067\",\n        \"shop_id\": \"shopee-123\",\n        \"marketplace_status\": \"paid\",\n        \"shipping_status\": \"shipped\",\n        \"wms_status\": \"PICKING\",\n        \"tracking_number\": \"\",\n        \"total_amount\": 179.98,\n        \"raw_marketplace_payload\": \"\",\n        \"created_at\": \"2025-12-04T02:00:00Z\",\n        \"updated_at\": \"2026-03-05T22:18:38.56878Z\"\n    }\n}"
+            },
+            {
+              "name": "Pick Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/orders/shopee-123-ORD-0067/pick",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "shopee-123-ORD-0067",
+                    "pick"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:18:51 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "79"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 404,\n    \"status\": \"error\",\n    \"message\": \"Order wms status is not ready to pick\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Pack",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{localUrl}}/orders/shopee-123-ORD-0067/pack",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "orders",
+                "shopee-123-ORD-0067",
+                "pack"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Pack Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/orders/shopee-123-ORD-0067/pack",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "shopee-123-ORD-0067",
+                    "pack"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:22:46 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "350"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Pack success\",\n    \"data\": {\n        \"order_sn\": \"shopee-123-ORD-0067\",\n        \"shop_id\": \"shopee-123\",\n        \"marketplace_status\": \"paid\",\n        \"shipping_status\": \"shipped\",\n        \"wms_status\": \"PACKED\",\n        \"tracking_number\": \"\",\n        \"total_amount\": 179.98,\n        \"raw_marketplace_payload\": \"\",\n        \"created_at\": \"2025-12-04T02:00:00Z\",\n        \"updated_at\": \"2026-03-05T22:22:46.857499Z\"\n    }\n}"
+            },
+            {
+              "name": "Pack Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/orders/shopee-123-ORD-0067/pack",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "shopee-123-ORD-0067",
+                    "pack"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:21:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "55"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 403,\n    \"status\": \"error\",\n    \"message\": \"Access denied\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ship",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"channel_id\": \"JNE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localUrl}}/orders/shopee-123-ORD-0067/ship",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "orders",
+                "shopee-123-ORD-0067",
+                "ship"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Ship Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"channel_id\": \"JNE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/orders/shopee-123-ORD-0067/ship",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "shopee-123-ORD-0067",
+                    "ship"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:26:37 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "522"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Ship success\",\n    \"data\": {\n        \"order_sn\": \"shopee-123-ORD-0067\",\n        \"shop_id\": \"shopee-123\",\n        \"marketplace_status\": \"paid\",\n        \"shipping_status\": \"shipped\",\n        \"wms_status\": \"SHIPPED\",\n        \"tracking_number\": \"TRK-6adf7f45-832e-4c41-b85b-e2186810bfa3\",\n        \"total_amount\": 179.98,\n        \"raw_marketplace_payload\": \"{\\\"order_sn\\\":\\\"shopee-123-ORD-0067\\\",\\\"tracking_no\\\":\\\"TRK-6adf7f45-832e-4c41-b85b-e2186810bfa3\\\",\\\"shipping_status\\\":\\\"shipped\\\"}\",\n        \"created_at\": \"2025-12-04T02:00:00Z\",\n        \"updated_at\": \"2026-03-05T22:26:38.420621Z\"\n    }\n}"
+            },
+            {
+              "name": "Ship Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"channel_id\": \"JNE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/orders/shopee-123-ORD-0067/ship",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "shopee-123-ORD-0067",
+                    "ship"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:27:26 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "72"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 404,\n    \"status\": \"error\",\n    \"message\": \"Order wms status is not packed\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logistic Channel",
+      "item": [
+        {
+          "name": "Dropdown",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localUrl}}/logistic-channels/dropdown",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "logistic-channels",
+                "dropdown"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Dropdown Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/logistic-channels/dropdown",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "logistic-channels",
+                    "dropdown"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:11:36 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "479"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"JNE\",\n            \"name\": \"Jalur Nugraha Ekakurir - Same-day\",\n            \"code\": \"jne\",\n            \"created_at\": \"2026-03-05T20:35:00.596132Z\",\n            \"updated_at\": \"2026-03-05T22:11:30.06904Z\"\n        },\n        {\n            \"id\": \"POS\",\n            \"name\": \"POS Indonesia - Standard\",\n            \"code\": \"pos\",\n            \"created_at\": \"2026-03-05T20:35:00.596132Z\",\n            \"updated_at\": \"2026-03-05T22:11:30.06904Z\"\n        },\n        {\n            \"id\": \"SF\",\n            \"name\": \"SF Express - Next-day\",\n            \"code\": \"sf\",\n            \"created_at\": \"2026-03-05T20:35:00.596132Z\",\n            \"updated_at\": \"2026-03-05T22:11:30.06904Z\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "Dropdown Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{localUrl}}/logistic-channels/dropdown",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "logistic-channels",
+                    "dropdown"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:12:36 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "73"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 500,\n    \"status\": \"error\",\n    \"message\": \"Error get logistic channel list\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Webhook",
+      "item": [
+        {
+          "name": "Order Status",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_sn\": \"SHP001\",\n  \"status\": \"delivered\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localUrl}}/webhook/order-status",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "webhook",
+                "order-status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Order Status Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_sn\": \"SHP001\",\n  \"status\": \"delivered\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/webhook/order-status",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "webhook",
+                    "order-status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:08:46 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "366"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Update order status success\",\n    \"data\": {\n        \"order_sn\": \"SHP001\",\n        \"shop_id\": \"shopee-123\",\n        \"marketplace_status\": \"delivered\",\n        \"shipping_status\": \"delivered\",\n        \"wms_status\": \"READY_TO_PICK\",\n        \"tracking_number\": \"\",\n        \"total_amount\": 449.48,\n        \"raw_marketplace_payload\": \"\",\n        \"created_at\": \"2026-01-25T09:00:00Z\",\n        \"updated_at\": \"2026-03-05T22:08:46.001092Z\"\n    }\n}"
+            },
+            {
+              "name": "Order Status Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_sn\": \"SHP001\",\n  \"status\": \"delivereds\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/webhook/order-status",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "webhook",
+                    "order-status"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:09:28 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "68"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 500,\n    \"status\": \"error\",\n    \"message\": \"Invalid marketplace status\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Shipping Status",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_sn\": \"SHP001\",\n  \"status\": \"awaiting_pickup\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localUrl}}/webhook/shipping-status",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "webhook",
+                "shipping-status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Shipping Status Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_sn\": \"SHP001\",\n  \"status\": \"awaiting_pickup\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/webhook/shipping-status",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "webhook",
+                    "shipping-status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:11:10 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "375"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Update shipping status success\",\n    \"data\": {\n        \"order_sn\": \"SHP001\",\n        \"shop_id\": \"shopee-123\",\n        \"marketplace_status\": \"delivered\",\n        \"shipping_status\": \"awaiting_pickup\",\n        \"wms_status\": \"READY_TO_PICK\",\n        \"tracking_number\": \"\",\n        \"total_amount\": 449.48,\n        \"raw_marketplace_payload\": \"\",\n        \"created_at\": \"2026-01-25T09:00:00Z\",\n        \"updated_at\": \"2026-03-05T22:11:10.422621Z\"\n    }\n}"
+            },
+            {
+              "name": "Shipping Status Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_sn\": \"SHP001\",\n  \"status\": \"awaiting_pickupss\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/webhook/shipping-status",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "webhook",
+                    "shipping-status"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:11:24 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "65"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 500,\n    \"status\": \"error\",\n    \"message\": \"Invalid shipping status\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let jsonData = pm.response.json();",
+                  "",
+                  "if (jsonData.data.access_token) {",
+                  "    pm.collectionVariables.set(\"accessToken\", jsonData.data.access_token);",
+                  "}",
+                  "if (jsonData.data.refresh_token) {",
+                  "    pm.collectionVariables.set(\"refreshToken\", jsonData.data.refresh_token);",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    // \"email\": \"warehouseoperator@test.com\",\n    // \"email\": \"packer@test.com\",\n    \"email\": \"warehouesadmin@test.com\",\n    \"password\": \"12345678\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localUrl}}/auth/login",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    // \"email\": \"warehouseoperator@test.com\",\n    \"email\": \"picker@test.com\",\n    \"password\": \"12345678\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/auth/login",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 14:59:12 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "616"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Login success\",\n    \"data\": {\n        \"user\": {\n            \"id\": 3,\n            \"email\": \"picker@test.com\",\n            \"role_id\": 3,\n            \"created_at\": \"2026-03-05T20:34:31.574154Z\",\n            \"updated_at\": \"2026-03-05T20:34:31.574154Z\",\n            \"role_name\": \"Picker\"\n        },\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzI3Mjk5NTIsImp0aSI6IjExYTI2ODUwLTc3ODQtNGRhYy1iMWMzLTQ0OGQ5MjQ5OTIzZiIsInN1YiI6M30.zGSo6Po8WXh5N59yNt-U3K91716y3IoNTCXqglsgbGk\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzI4MDkxNTIsImp0aSI6IjNkOWFkN2ZmLTczZGYtNDZmOS04MDc3LTk4MGI1YzMyZWU3MSIsInN1YiI6M30.pQ4lZb25k91v9MPJg1CM7vD2EzKWWGvlKkjI7s6KOZ4\"\n    }\n}"
+            },
+            {
+              "name": "Login  Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    // \"email\": \"warehouseoperator@test.com\",\n    \"email\": \"pickers@test.com\",\n    \"password\": \"12345678\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/auth/login",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:02:09 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "61"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 401,\n    \"status\": \"error\",\n    \"message\": \"Invalid credentials\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Refresh Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let jsonData = pm.response.json();",
+                  "",
+                  "if (jsonData.data.access_token) {",
+                  "    pm.collectionVariables.set(\"accessToken\", jsonData.data.access_token);",
+                  "}",
+                  "if (jsonData.data.refresh_token) {",
+                  "    pm.collectionVariables.set(\"refreshToken\", jsonData.data.refresh_token);",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"access_token\": \"{{accessToken}}\",\n    \"refresh_token\": \"{{refreshToken}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localUrl}}/auth/refresh-token",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Refresh Token Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"access_token\": \"{{accessToken}}\",\n    \"refresh_token\": \"{{refreshToken}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/auth/refresh-token",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "refresh-token"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 04 Mar 2026 02:25:32 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "429"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzI1OTgzMzIsImp0aSI6IjRhZWMwNDU1LTk3OWYtNGFjYS1hMDk5LWVlYTZmMzJiMzY2NiIsInN1YiI6Mn0.X0n8amwGxQJLikEKXmSwr6THcNPzYg2c7V0msOkP2JE\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzI2Nzc1MzIsImp0aSI6IjJmMzJhOTQxLTNjMWEtNGU2OS1iZmNhLTJhYjk1NzJjYTkyZSIsInN1YiI6Mn0.NhJHc6Or3KbX698l-Yz1Ppw5g06cPoQKOfx4XP3mnoQ\"\n    }\n}"
+            },
+            {
+              "name": "Refresh Token Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"access_token\": \"{{accessToken}}s\",\n    \"refresh_token\": \"{{refreshToken}}s\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/auth/refresh-token",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "refresh-token"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:03:58 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "74"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 401,\n    \"status\": \"error\",\n    \"message\": \"Error check access token revoked\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Logout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let jsonData = pm.response.json();",
+                  "",
+                  "if (jsonData.data.access_token) {",
+                  "    pm.collectionVariables.set(\"accessToken\", jsonData.data.access_token);",
+                  "    console.log(\"Access token saved to collection variable\");",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"warehouseoperator@test.com\",\n    \"password\": \"12345678\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localUrl}}/auth/logout",
+              "host": [
+                "{{localUrl}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Logout Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"email\": \"warehouseoperator@test.com\",\n    \"password\": \"12345678\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/auth/logout",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "logout"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:13:24 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "58"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Logout success\"\n}"
+            },
+            {
+              "name": "Logout Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"email\": \"warehouseoperator@test.com\",\n    \"password\": \"12345678\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{localUrl}}/auth/logout",
+                  "host": [
+                    "{{localUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "logout"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 05 Mar 2026 15:13:34 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "62"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 401,\n    \"status\": \"error\",\n    \"message\": \"Access token revoked\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "localUrl",
+      "value": ""
+    },
+    {
+      "key": "accessToken",
+      "value": ""
+    },
+    {
+      "key": "refreshToken",
+      "value": ""
+    }
+  ]
+}

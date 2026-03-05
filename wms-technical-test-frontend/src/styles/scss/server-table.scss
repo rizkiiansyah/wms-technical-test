@@ -1,0 +1,11 @@
+.server-table {
+  tbody {
+    tr {
+      &:last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}

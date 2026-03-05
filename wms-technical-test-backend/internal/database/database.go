@@ -1,0 +1,27 @@
+package database
+
+import (
+	"fmt"
+	"log"
+	"wms-technical-test-backend/internal/config"
+
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+)
+
+var DB *gorm.DB
+
+func Connect(cfg *config.Config) {
+	dsn := fmt.Sprintf(
+		"host=%s user=%s password=%s dbname=%s port=%s sslmode=%s",
+		cfg.DBHost, cfg.DBUser, cfg.DBPass, cfg.DBName, cfg.DBPort, cfg.DBSSLMode,
+	)
+	db, err := gorm.Open(postgres.Open(dsn))
+	if err != nil {
+		log.Fatalf("Failed connect to database: %v", err)
+	} else {
+		log.Println("Database connected")
+	}
+
+	DB = db
+}
