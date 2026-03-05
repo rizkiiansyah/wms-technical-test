@@ -165,12 +165,13 @@ order.Post("/:order_sn/pick", middleware.RoleAccessMiddleware(roleAccessSvc, "or
 ```
 
 ## Run Project Instruction
+
 - Backend
--> Run all migration sql, filepath: /wms-technical-test-backend/migrations
--> Change .env-example to .env in /wms-technical-test-backend/
--> Go to folder /wms-technical-test-backend and run the backend, command: go run cmd/app/main.go (use go 1.25)
+  -> Run all migration sql, filepath: /wms-technical-test-backend/migrations
+  -> Change .env-example to .env in /wms-technical-test-backend/
+  -> Go to folder /wms-technical-test-backend and run the backend, command: go run cmd/app/main.go (use go 1.25)
 
 - Frontend
--> Change .env-example to .env in /wms-technical-test-frontend/
--> Go to folder /wms-technical-test-frontend, and install depedencies, command: npm install (use node 20)
--> Go to folder /wms-technical-test-frontend, and then run the frontend, command: npm run dev
+  -> Change .env-example to .env in /wms-technical-test-frontend/
+  -> Go to folder /wms-technical-test-frontend, and install depedencies, command: npm install (use node 20)
+  -> Go to folder /wms-technical-test-frontend, and then run the frontend, command: npm run dev
