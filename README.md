@@ -135,7 +135,7 @@ Run all migrations sql, location: wms-technical-test-backend/migrations
 - Next.js: I have experience using next.js.
 - Typescript: More secure for types, there is autocomplete in vscode.
 - TailwindCSS: More flexible for inline styling without css/scss syntax.
-- Role access table: More flexible when there is new role and give the access rights.
+- Role Access Table: More flexible when there is new role and give the access rights.
 ```go
 func RoleAccessMiddleware(roleAccessSvc *roleaccess.Service, allowedRoleAccessKeys ...string) fiber.Handler {
 	return func(c *fiber.Ctx) error {
