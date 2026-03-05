@@ -110,7 +110,7 @@ if !IsValidOrderWMSStatus(wmsStatus) {
 }
 ```
 
-# Migrations
+## Migrations
 Run all migrations sql, location: wms-technical-test-backend/migrations
 
 ## Logs
