@@ -136,6 +136,7 @@ Run all migrations sql, location: wms-technical-test-backend/migrations
 - Typescript: More secure for types, there is autocomplete in vscode.
 - TailwindCSS: More flexible for inline styling without css/scss syntax.
 - Role Access Table: More flexible when there is new role and give the access rights.
+- sync/singleflight: Simple to prevent duplication of concurrent function calls.
 ```go
 func RoleAccessMiddleware(roleAccessSvc *roleaccess.Service, allowedRoleAccessKeys ...string) fiber.Handler {
 	return func(c *fiber.Ctx) error {
@@ -159,4 +160,3 @@ func RoleAccessMiddleware(roleAccessSvc *roleaccess.Service, allowedRoleAccessKe
 
 order.Post("/:order_sn/pick", middleware.RoleAccessMiddleware(roleAccessSvc, "orders.pick"), handler.Pick)
 ```
-- sync/singleflight: Simple to prevent duplication of concurrent function calls.
