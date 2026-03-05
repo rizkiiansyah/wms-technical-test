@@ -82,7 +82,7 @@ func (h *Handler) Logout(c *fiber.Ctx) error {
 }
 
 func (h *Handler) Profile(c *fiber.Ctx) error {
-	logger.Info("Auth logout start")
+	logger.InfoWithUserEmail("Auth profile start", c)
 
 	accessToken, ok := c.Locals("access_token").(string)
 	if !ok {
@@ -98,7 +98,7 @@ func (h *Handler) Profile(c *fiber.Ctx) error {
 		return response.HandleError(c, err)
 	}
 
-	logger.Info("Auth logout finish")
+	logger.InfoWithUserEmail("Auth profile finish", c)
 
 	return response.SuccessWithData(c, fiber.StatusOK, result)
 }
