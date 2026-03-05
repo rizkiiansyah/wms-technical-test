@@ -111,6 +111,7 @@ if !IsValidOrderWMSStatus(wmsStatus) {
 ```
 
 ## Migrations
+
 Run all migrations sql, location: wms-technical-test-backend/migrations
 
 ## Logs
@@ -118,7 +119,7 @@ Run all migrations sql, location: wms-technical-test-backend/migrations
 ![Architecture](./images/logs-1.png)
 ![Architecture](./images/logs-2.png)
 
-## UI 
+## UI
 
 ![Architecture](./images/app-1.png)
 ![Architecture](./images/app-2.png)
@@ -126,3 +127,35 @@ Run all migrations sql, location: wms-technical-test-backend/migrations
 ![Architecture](./images/app-4.png)
 ![Architecture](./images/app-5.png)
 ![Architecture](./images/app-6.png)
+
+## Reason Design
+
+- Golang Fiber: The syntax is similar to Express.js, so the syntax is very familiar to JavaScript developers, and I have basic skills using Fiber.
+- JWT Authentication: I have experience using jwt auth, in code it is easier to create authentication.
+- Next.js: I have experience using next.js.
+- Typescript: More secure for types, there is autocomplete in vscode.
+- TailwindCSS: More flexible for inline styling without css/scss syntax.
+- Role access table: More flexible when there is new role and give the access rights
+```go
+func RoleAccessMiddleware(roleAccessSvc *roleaccess.Service, allowedRoleAccessKeys ...string) fiber.Handler {
+	return func(c *fiber.Ctx) error {
+		user, ok := c.Locals("user").(*authmiddleware.User)
+		if !ok {
+			return response.ErrorWithMessage(c, fiber.ErrInternalServerError.Code, fiber.ErrInternalServerError.Message)
+		}
+
+		roleAccesses, err := roleAccessSvc.FindByRoleIDAndKeys(user.RoleID, allowedRoleAccessKeys)
+		if err != nil {
+			return response.ErrorWithMessage(c, fiber.ErrNotFound.Code, "Error get role access")
+		}
+
+		if len(roleAccesses) > 0 {
+			return c.Next()
+		}
+
+		return response.ErrorWithMessage(c, fiber.ErrForbidden.Code, "Access denied")
+	}
+}
+
+order.Post("/:order_sn/pick", middleware.RoleAccessMiddleware(roleAccessSvc, "orders.pick"), handler.Pick)
+```
