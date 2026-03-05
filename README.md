@@ -47,7 +47,7 @@ Flow Authentication
 ## Order Lifecycle
 
 - Scheduler will to get the order list from Marketplace API and store in database. Initial wms_status is READY_TO_PICK, but if the order already exists (check by order_sn field), system will update all field except wms_status and updated_at.
-- After scheduler is done to get the order list, users who have Picker role can do pick the order if the wms status is READY_TO_PIC. If user do pick the order, wms status will change to PICKING. In frontend, pick button only show when wms status is READY_TO_PICK and user login role is Picker.
+- After scheduler is done to get the order list, users who have Picker role can do pick the order if the wms status is READY_TO_PICK. If user do pick the order, wms status will change to PICKING. In frontend, pick button only show when wms status is READY_TO_PICK and user login role is Picker.
 - After the order wms status change to PICKING, users who have Packer role can do pack the order if the wms status is PICKING. If user do pack the order, wms status will change to PACKED. In frontend, pack button only show when wms status is PICKING and user login role is Packer.
 - After the order wms status change to PACKED, uses who have Warehouse Admin role can do ship the order if the wms status is PACKED. If user do ship the order, wms status will change to SHIPPED and will get Tracking Number and Shipping Status from Marketplace API /logistics/ship and do update to the order.
 
