@@ -130,8 +130,9 @@ Run all migrations sql, location: wms-technical-test-backend/migrations
 
 ## Reason Design
 
-- Golang Fiber: The syntax is similar to Express.js, so the syntax is very familiar to JavaScript developers, and I have basic skills using Fiber.
+- Golang Fiber: The syntax is similar to Express.js, so the syntax is very familiar to javaScript developers, and I have basic skills using Fiber.
 - JWT Authentication: I have experience using jwt auth, in code it is easier to create authentication.
+- Redis: To store tokens, tokens are temporary, so storing them in redis is faster than in an SQL database. Since tokens are checked on every request, redis is more suitable.
 - Next.js: I have experience using next.js.
 - Typescript: More secure for types, there is autocomplete in vscode.
 - TailwindCSS: More flexible for inline styling without css/scss syntax.
