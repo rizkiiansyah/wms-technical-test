@@ -167,7 +167,7 @@ order.Post("/:order_sn/pick", middleware.RoleAccessMiddleware(roleAccessSvc, "or
 ## Run Project Instruction
 
 - Backend
-  -> Run all migration sql, filepath: /wms-technical-test-backend/migrations
+  -> Run all migration sql, filepath: /wms-technical-test-backend/migrations (roles, role_accesses, users, orders, order_items)
   -> Change .env-example to .env in /wms-technical-test-backend/
   -> Go to folder /wms-technical-test-backend and run the backend, command: go run cmd/app/main.go (use go 1.25)
 
