@@ -32,12 +32,12 @@ func Run(cfg *config.Config, rdb *redis.Client, ctx context.Context) {
 
 	jwtUtl := util.NewJwt(cfg)
 
-	redisSvc := moduleredis.NewService(rdb, ctx, cfg, jwtUtl)
 	roleRepo := roleaccess.NewRepository()
 	orderRepo := order.NewRepository()
 	logisticChannelRepo := logisticchannel.NewRepository()
 	userRepo := user.NewRepository()
 
+	redisSvc := moduleredis.NewService(rdb, ctx, cfg, jwtUtl)
 	marketplaceApiSvc := marketplaceapi.NewService(redisSvc, cfg)
 	roleAccessSvc := roleaccess.NewService(roleRepo, cfg)
 	orderSvc := order.NewService(orderRepo, marketplaceApiSvc)
